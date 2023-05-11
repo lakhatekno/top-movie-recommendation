@@ -15,6 +15,13 @@ body{
     margin: 0;
 }
 
+body::-webkit-scrollbar-thumb {
+    background-color: orange;
+}
+
+body::-webkit-scrollbar {
+    background-color: #22254b;
+}
 
 header{
     padding:1rem;
@@ -42,10 +49,20 @@ header{
     color: #7378c5;
 }
 
-main{
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
     display:flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+h1 {
+    color: #fff;
+    text-align: center;
 }
 
 .movie {
@@ -101,7 +118,14 @@ main{
 .desc {
     font-size: small;
     margin: 1rem 0;
+    overflow-y: scroll;
+    max-height: 175px;
 }
+
+.desc::-webkit-scrollbar {
+    width: 0;
+}
+
 .overview h3{
     margin: 0;
     text-align: left;
@@ -152,21 +176,25 @@ main{
 }
 
 .pagination{
-    display:flex;
-    margin:10px 30px;
+    display: flex;
+    margin: 10px 30px;
     align-items: center;
     justify-content: center;
     color:white;
+    gap: 17px;
+    cursor: default;
 }
 
 .page{
-    padding:20px;
-    cursor:pointer;
+    padding: 10px 23px;
+    cursor: pointer;
+    background-color: #373b69;
+    border-radius: 23px;
 }
 
-.page.disabled{
-    cursor:not-allowed;
-    color:grey;
+.page:hover {
+    background-color: #7378c5;
+    transition: .2s;
 }
 
 .current{
